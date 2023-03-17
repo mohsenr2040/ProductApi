@@ -22,7 +22,7 @@ stages:
               containerregistrytype: 'Container Registry'
               command: 'Build an image'
               dockerFile: '**/Dockerfile'
-              imageName: $(ImageName)
+              imageName: '$(ImageName)'
               dockerRegistryEndpoint: 'Docker Hub'
               includeLatestTag: true
               useDefaultContext: false
