@@ -5,7 +5,7 @@ trigger:
      - master
 
 pool:
- vmImage:'ubuntu-latest'
+  vmImage: 'ubuntu-latest'
 
 variables:
   ImageName: 'mohsenr2040/productapi:$(Build:BuildId)'
