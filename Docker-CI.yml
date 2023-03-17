@@ -1,0 +1,33 @@
+name : Docker-CI
+trigger:
+ branches:
+   include:
+     - master
+
+pool:
+ vmImage:'ubuntu-latest'
+
+variables:
+  ImageName: 'mohsenr2040/productapi:$(Build:BuildId)'
+stages:
+  - stage: Build
+    displayName: Build Image
+    jobs:
+      - job: DockerImage
+        displayName: Build and push Docker image
+        steps:
+          - task: Docker@1
+            displayName: 'Build the Docker image'
+            inputs:
+              containerregistrytype: 'Container Registry'
+              command: 'Build an image'
+              dockerFile: '**/Dockerfile'
+              imageName: $(ImageName)
+              dockerRegistryEndpoint: 'Docker Hub'
+              includeLatestTag: true
+              useDefaultContext: false
+              buildContext: '.'
+
+
+
+
