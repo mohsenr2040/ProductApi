@@ -8,7 +8,7 @@ pool:
   vmImage: 'ubuntu-latest'
 
 variables:
-  ImageName: 'mohsenr2040/productapi:latest'
+  ImageName: 'mohsenr2040/productapi:$(Build.BuildId)'
 stages:
   - stage: Build
     displayName: Build Image
